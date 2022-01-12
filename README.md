@@ -95,7 +95,7 @@ a = {}
 ### undefined 타입
 자바스크립트에서 undefined는 값이다. 변수를 초기화 하지 않으면 undefined값을 가진다. 그러나 타입스크립트에서는 undefined는 타입이기도 하고 값이기도하다.
 ```typescript
-let u: undefined = sundefined
+let u: undefined = undefined
 u = 1 // type undefined 오류 발생
 ```
 
