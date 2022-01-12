@@ -113,7 +113,7 @@ console.log(result) //your count is 10
 ```
 
 ## 03-2 객체와 인터페이스
-object(객체)타입은 입터페이스 클래스의 상위타입이다. object로 선언된 변수는 number, string, boolean 타입의 값을 가질 수 없다
+object(객체)타입은 인터페이스 클래스의 상위타입이다. object로 선언된 변수는 number, string, boolean 타입의 값을 가질 수 없다
 ```typescript
 let o: object = {name: 'Jack', age:32}
 o = {first: 1, second: 2} //오류 발생
