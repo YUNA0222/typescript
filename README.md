@@ -2,7 +2,7 @@
 타입스크립트 개발은 nodejs project를 만들고 개발언어를 타입스크립트로 설정한다. 
 
 #
-## 02-1
+## 02-1 타입스크립트 프로젝트 만들기
 1. 폴더 생성 (mkdir 폴더명) > (cd 폴더명)으로 이동 후
 2. pakage.json 파일 생성(npm init --y)
 - pakage.json: nodejs가 관리하는 패키지 관리파일, 프로젝트 정보와 관련패키지가 기록됨
@@ -16,7 +16,7 @@
 5. pakage.json에 dev와 bulid 추가
 - npm run dev, npm run bulid
 
-## 02-2
+## 02-2 모듈 이해하기
 타입스크립트에서는 index.ts와 같은 소스파일을 모듈이라 함.
 코드관리와 유지보수를 편리하게 하기위해 모듈마다 고유한 기능을 구현하여 분할하는 것을 모듈화라한다.
 > 이때 사용하는 것이 import와 export
@@ -34,7 +34,7 @@ age:number = U.makeRandomNumber()
 
 export default키워드: 타입스크립트는 자바스크립트와 호환하기 위함. export default키워드는 한 모듈이 내보내는 기능 중 오직 하나만 붙일 수 있다. export default키워드가 붙은 기능은 import할 때 {}없이 사용할 수 있다.
 
-## 02-3
+## 02-3 tsconfig.json 파일 살펴보기
 ```typescript
 "compilerOptions": {//tsc명령형식에서 옵션을 나타냄 
     "module": "commonjs", //동작대상 플랫폼이 웹인지 노드인지 구분해서 컴파일 한다.웹은:AMD 노드:commonjs
@@ -77,6 +77,7 @@ const 변수 이름: 타입 = 초깃값
 ```
 
 let n : number = 1
+
 let으로 선언한 변숫값은 타입 주석으로 명시한 타입에 해당하는 값으로만 바꿀 수 있다. n='a' < 얘는 타입 불일치 오류 발생
 
 ### 타입 추론
@@ -344,10 +345,23 @@ console.log(coord) // {x: 0, y: 0}
 ```typescript
 let part1 = {name: 'jane'}, part2 = {age: 22}, part3 = {city: 'Seoul', country:'Kr'}
 let merged = {...part1,  ...part2, ...part3}//1열을 모두 통합한 새로운 객체를 만듦
-console.log(coord) 
+console.log(merged) 
 // {name: 'jane', age: 22, city: 'Seoul', country:'Kr'}
 ```
 ## 03-5 객체의 타입 변환
 ### 타입 변환
 타입이 있는 언어들을 특정타입의 변숫값을 다른 타입의 값으로 변환할 수 있는 기능
 ### 타입 단언
+
+## 04-1 함수 선언문
+```typescript
+function printtMe(name: string, age: number): void{
+    console.log(`name: ${name}, age${age}`)
+}
+```
+함수 시그니처
+> (매개변수1 타입, 매개변수2 타입[, ...]) => 반환값 타입
+```typescript
+let printtMe: (string, number) => void = function(name: string, age: number): void{}
+}
+```
