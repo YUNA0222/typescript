@@ -359,9 +359,46 @@ function printtMe(name: string, age: number): void{
     console.log(`name: ${name}, age${age}`)
 }
 ```
-함수 시그니처
+### 함수 시그니처
 > (매개변수1 타입, 매개변수2 타입[, ...]) => 반환값 타입
 ```typescript
 let printtMe: (string, number) => void = function(name: string, age: number): void{}
 }
 ```
+### type 키워드로 별칭 만들기
+> type 새로운 타입 = 기존 타입
+
+type키워드는 기존에 존재하는 타입을 단순히 이름만 바꿔서 사용할 수 있게 해준다. 이 기능을 타입 별칭이라 한다. 함수의 타입, 즉 함수 시그니처를 명시하면 매개변수의 타입, 반환 타입이 다른 함수를 선언하는 잘못을 사전에 방지할 수 있다.
+ ```typescript
+type stringNunmberFunc = (string, number) => void
+let f: stringNunmberFunc = function(a: string, b: number): void{}
+let g: stringNunmberFunc = function(c: string, d: number): void{}
+}
+```
+## 04-2 함수 표현식 
+자바스크립트에서는 함수는 Function클래스의 인스턴스이다.
+> let add = new Function('a', 'b', 'return a+b')
+
+일반 함수
+> function add = (a, b){return a + b}
+
+함수 표현식 - 함수이름을 제외한 거
+> funtion(a, b) {return a + b}
+
+### 일등 함수
+프로그래밍 언어가 일등함수 기능을 제공하면 함수형 프로그램 언어라고 부른다. 일등함수란 함수와 변수를 구분하지 않는다는 것이다.
+
+### 함수 호출 연산자
+뱐수가 함수표현식을 담고 있다면, 변수뒤에 함수호출연산자()를 붙여서 호출할 수 있다.함수호출이란 함수 표현식의 몸통부분을 실행한다는 것이다. 
+
+## 04-3 화살표 함수와 표현식 문
+> const 함수이름 = (매개변수1: 타입1, 매개변수2: 타입2 [, ...]): 반환타입 => 함수 몸통
+
+### 실행문과 표현문
+실행문: CPU에서 실행되는 코드, 결과를 알려주진 않음.결과를 알려면 return을 사용해야한다.
+
+표현문: return을 사용하지 않아도 결과를 알려준다.
+
+CPU에서 실행되는 구문이라하더라도 x>0처럼return 키워드 없이 결과값을 반환하는 실행문을 '표현문'이라고 부른다.
+## 04-4 일등 함수 살펴보기
+### 콜백 함수
